@@ -1,0 +1,32 @@
+pipeline {
+   agent any
+
+   stages {
+      stage('SCM Phase') {
+         steps {
+            echo 'checkout the code'
+         }
+      }
+      stage('Build phase') {
+         steps {
+            echo 'build the code'
+         }
+      }
+      stage('test phase') {
+         steps {
+            echo 'testing phase'
+            //exit 0
+         }
+      }
+      stage('Move artifact to nexus') {
+         steps {
+            echo 'push war file to nexus'
+         }
+      }
+      stage('Deploy phase') {
+         steps {
+            echo 'Deploy the artifact to target server'
+         }
+      }
+   }
+}
